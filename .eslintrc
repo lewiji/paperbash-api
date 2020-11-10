@@ -1,0 +1,21 @@
+{
+  "env": {
+    "es6": true,
+    "node": true,
+    "mocha": true
+  },
+  "extends": ["eslint-config-leapfrog", "prettier"],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "rules": {
+    "jsdoc/require-description-complete-sentence": "off",
+    "camelcase": [
+      "error",
+      {
+        "properties": "never"
+      }
+    ]
+  }
+}
