@@ -13,6 +13,6 @@ router.get('/new', gameController.create);
 /**
  * POST /api/games/join
  */
-router.post('/join', gameValidator, gameController.join);
+router.post('/join/:id', gameValidator, gameController.join);
 
 export default router;
