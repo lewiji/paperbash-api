@@ -2,6 +2,7 @@ import HttpStatus from 'http-status-codes';
 import { customAlphabet } from 'nanoid';
 
 import * as gameService from '../services/gameService.js';
+import { registerLobby } from '../services/webrtcService.js';
 
 /**
  * Create a new game.
@@ -14,6 +15,8 @@ export function create(req, res, next) {
   const nanoid = customAlphabet('1234567890ABCDEF', 6);
   const code = nanoid();
   const { ip, hostname } = req;
+
+  registerLobby(code);
 
   gameService
     .createGame({ code, ip, hostname })
