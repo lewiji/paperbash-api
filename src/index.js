@@ -18,6 +18,7 @@ import logger, { logStream } from './utils/logger';
 import * as errorHandler from './middlewares/errorHandler';
 
 import { startWebRTCServer } from './services/webrtcService';
+import { startTurnServer } from './services/turnService';
 
 // Initialize Sentry
 // https://docs.sentry.io/platforms/node/express/
@@ -75,6 +76,7 @@ app.use(errorHandler.methodNotAllowed);
 app.listen(app.get('port'), app.get('host'), () => {
   logger.info(`Server started at http://${app.get('host')}:${app.get('port')}/api`);
   startWebRTCServer();
+  startTurnServer();
 });
 
 // Catch unhandled rejections
